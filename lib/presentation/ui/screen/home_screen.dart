@@ -1,5 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kabar/presentation/ui/utility/image_assets.dart';
+
+import '../widgets/news_list_widget.dart';
+import '../widgets/section_title_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            SvgPicture.asset('assets/images.logo.svg'),
+            SvgPicture.asset(ImageAssets.logo, width: 100,),
             const Spacer(),
             InkWell(
               onTap: (){},
@@ -40,18 +46,33 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Trending', style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),),
-                Text('See all', style: TextStyle(
-                  fontSize: 16
-                ),)
-              ],
-            )
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                prefixIcon: Icon(Icons.search),
+                suffixIcon: Icon(Icons.filter_alt_off_outlined),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(6)
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(6)
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(6)
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
+                    borderRadius: BorderRadius.circular(6)
+                ),
+              ),
+            ),
+            const SizedBox(height: 16,),
+            const SectionTitle(),
+            const SizedBox(height: 16,),
+            const NewsList()
           ],
         ),
       ),

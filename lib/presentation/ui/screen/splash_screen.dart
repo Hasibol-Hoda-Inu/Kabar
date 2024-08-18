@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kabar/presentation/ui/screen/home_screen.dart';
+import 'package:kabar/presentation/ui/utility/image_assets.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/images/logo.svg', width: 200,),
+            SvgPicture.asset(ImageAssets.logo, width: 200,),
           ],
         ),
       ),

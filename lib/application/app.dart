@@ -11,6 +11,7 @@ class Kabar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
