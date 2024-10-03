@@ -1,25 +1,29 @@
-
-
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
+  
+  final String title;
+  final VoidCallback? navigateToNextScreenMethod;
+  
   const SectionTitle({
-    super.key,
+    super.key, 
+    required this.title,
+    required this.navigateToNextScreenMethod,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Trending',
-          style: TextStyle(
+        Text(title,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),),
-        Text('See all', style: TextStyle(
-            fontSize: 16
-        ),)
+        TextButton(
+            onPressed: navigateToNextScreenMethod ?? (){},
+            child: const Text("See all"))
       ],
     );
   }

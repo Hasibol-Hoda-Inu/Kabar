@@ -1,81 +1,99 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kabar/presentation/ui/utility/image_assets.dart';
+import 'package:kabar/presentation/ui/screen/trending_news_screen.dart';
 
-import '../widgets/news_list_widget.dart';
+import '../widgets/k_app_bar_widget.dart';
+import '../widgets/news_card_widget.dart';
 import '../widgets/section_title_widget.dart';
+import '../widgets/tab_bar_view_widget.dart';
+import 'latest_news_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 10, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            SvgPicture.asset(ImageAssets.logo, width: 100,),
-            const Spacer(),
-            InkWell(
-              onTap: (){},
-              child: Container(
-                width: 35,
-                height: 35,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(6),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      spreadRadius: 0,
-                      blurRadius: 10,
-                      offset: Offset(0, 0),
-                    )
-                  ]
-                ),
-                child: const Icon(Icons.notifications_none_rounded, size: 26,),
-              ),
-            ),
-          ],
-        ),
-      ),
-
+      appBar: const KAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.filter_alt_off_outlined),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
-                  borderRadius: BorderRadius.circular(6)
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
-                  borderRadius: BorderRadius.circular(6)
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
-                  borderRadius: BorderRadius.circular(6)
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1.0, style: BorderStyle.solid),
-                    borderRadius: BorderRadius.circular(6)
-                ),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 24,),
+                  TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                      prefixIcon: const Icon(Icons.search),
+                      suffixIcon: const Icon(Icons.tune_rounded),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(6)
+                      ),
+                      border: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(6)
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(6)
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
+                          borderRadius: BorderRadius.circular(6)
+                      ),
+                    ),
+                  ),
+                  SectionTitle(
+                    title: 'Trending',
+                    navigateToNextScreenMethod: _goToTrendingScreen,),
+                  const NewsCard(),
+                  const SizedBox(height: 16,),
+                  SectionTitle(
+                    title: 'Latest',
+                    navigateToNextScreenMethod: _goToLatestNewsScreen,),
+                  SizedBox(height:1300, child: Expanded(child: TabBarViewWidget(tabController: tabController))),
+                    const SizedBox(height: 8,)
+                ],
               ),
             ),
-            const SizedBox(height: 16,),
-            const SectionTitle(),
-            const SizedBox(height: 16,),
-            const NewsList()
-          ],
-        ),
-      ),
+          ),
     );
   }
+
+  void _goToTrendingScreen(){
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context)=>const TrendingNewsScreen()));
+  }
+
+  void _goToLatestNewsScreen(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>const LatestNewsScreen()));
+  }
 }
+
+
+
+
+
+
+
+

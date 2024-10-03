@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:kabar/presentation/ui/screen/home_screen.dart';
+import 'package:kabar/presentation/ui/screen/main_bottom_nav_screen.dart';
 import 'package:kabar/presentation/ui/utility/image_assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,19 +12,16 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  // @override
-  // void initState(){
-  //   super.initState();
-  //   gotoNextScreen();
-  // }
-  //
-  // Future<void> gotoNextScreen()async {
-  //   Future.delayed(const Duration(seconds: 3)).then(
-  //       (value){
-  //         Get.offAll(const HomeScreen());
-  //       }
-  //   );
-  // }
+  @override
+  void initState(){
+    super.initState();
+    _gotoNextScreen();
+  }
+
+  Future<void> _gotoNextScreen()async {
+    await Future.delayed(const Duration(seconds: 2));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const MainBottomNavScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
