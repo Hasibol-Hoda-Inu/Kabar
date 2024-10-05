@@ -19,13 +19,13 @@ class _LatestNewsScreenState extends State<LatestNewsScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-        child: Expanded(
-          child: ListView.separated(
-            itemBuilder: (BuildContext context, index)=>const NewsCard(),
-            separatorBuilder: (BuildContext context, index)=>const SizedBox(height: 24,),
-            itemCount: 10,
-          ),
-        ),
+        // child: Expanded(
+        //   child: ListView.separated(
+        //     itemBuilder: (BuildContext context, index)=>const NewsCard(),
+        //     separatorBuilder: (BuildContext context, index)=>const SizedBox(height: 24,),
+        //     itemCount: 10,
+        //   ),
+        // ),
       ),
     );
   }

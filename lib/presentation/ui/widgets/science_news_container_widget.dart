@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:kabar/data/model/science_category_data_model.dart';
 
-import '../screen/news_details_screen.dart';
 import '../utility/image_assets.dart';
 
-class NewsContainer extends StatefulWidget {
-  const NewsContainer({
+class ScienceNewsContainer extends StatefulWidget {
+  const ScienceNewsContainer({
     super.key,
   });
 
   @override
-  State<NewsContainer> createState() => _NewsContainerState();
+  State<ScienceNewsContainer> createState() => _ScienceNewsContainerState();
 }
 
-class _NewsContainerState extends State<NewsContainer> {
+class _ScienceNewsContainerState extends State<ScienceNewsContainer> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -76,6 +76,6 @@ class _NewsContainerState extends State<NewsContainer> {
   }
 
   void _onTapNewsListContainerMethod(){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>const NewsDetailsScreen()));
+    // Navigator.push(context, MaterialPageRoute(builder: (context)=>const NewsDetailsScreen(articles: null,)));
   }
 }

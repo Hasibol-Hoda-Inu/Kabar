@@ -3,6 +3,7 @@ import 'package:kabar/presentation/ui/screen/bookmark_screen.dart';
 import 'package:kabar/presentation/ui/screen/explore_screen.dart';
 import 'package:kabar/presentation/ui/screen/home_screen.dart';
 import 'package:kabar/presentation/ui/screen/profile_screen.dart';
+import 'package:kabar/presentation/ui/widgets/k_app_bar_widget.dart';
 
 import '../utility/app_color.dart';
 
@@ -25,6 +26,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const KAppBar(),
       body: _screen[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

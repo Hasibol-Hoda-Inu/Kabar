@@ -6,10 +6,13 @@ class CategoryCardWidget extends StatelessWidget {
 
   final String title;
   final String description;
+  final VoidCallback navigateToNextScreen;
+
   const CategoryCardWidget({
     super.key,
     required this.title,
     required this.description,
+    required this.navigateToNextScreen,
   });
 
   @override
@@ -39,14 +42,16 @@ class CategoryCardWidget extends StatelessWidget {
           ),
         ),
         ElevatedButton(
-            onPressed: (){},
+            onPressed: (){
+              navigateToNextScreen();
+            },
             style: ElevatedButton.styleFrom(
                 backgroundColor: AppColor.primaryColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(6)
                 )
             ),
-            child: const Text("Reed", style: TextStyle(
+            child: const Text("Read", style: TextStyle(
                 color: Colors.white
             ),))
       ],

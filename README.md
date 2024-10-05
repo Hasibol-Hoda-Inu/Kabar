@@ -4,4 +4,4 @@ A new Flutter project.
 
 ## Getting Started
 
-[Khabar App Hero Image](assets/images/Hero.jpg)
+![Khabar App Hero Image](assets/images/Hero.jpg)
