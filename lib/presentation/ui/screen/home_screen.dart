@@ -37,38 +37,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
             child: Column(
               children: [
-                const SizedBox(height: 24,),
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    prefixIcon: const Icon(Icons.search),
-                    suffixIcon: const Icon(Icons.tune_rounded),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(6)
-                    ),
-                    border: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(6)
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(6)
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(width: 1.0, style: BorderStyle.solid),
-                        borderRadius: BorderRadius.circular(6)
-                    ),
-                  ),
-                ),
-                SectionTitle(
-                  title: 'Trending',
-                  navigateToNextScreenMethod: _goToTrendingScreen,),
-                // NewsCard(articles: null,),
                 const SizedBox(height: 16,),
-                SectionTitle(
-                  title: 'Latest',
-                  navigateToNextScreenMethod: _goToLatestNewsScreen,),
                 Expanded(
                     child: TabBarViewWidget(
                         tabController: tabController,

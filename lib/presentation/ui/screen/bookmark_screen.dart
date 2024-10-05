@@ -13,17 +13,17 @@ class BookmarkScreen extends StatefulWidget {
 class _BookmarkScreenState extends State<BookmarkScreen> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 24,),
-          const Text("BookMarks", style: TextStyle(
+          SizedBox(height: 24,),
+          Text("BookMarks", style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold
           ),),
-          const SizedBox(height: 24,),
+          SizedBox(height: 24,),
           // Expanded(
           //   child: ListView.separated(
           //     itemBuilder: (BuildContext context, index)=> NewsCard(articles: sCDM.articles![index],,),

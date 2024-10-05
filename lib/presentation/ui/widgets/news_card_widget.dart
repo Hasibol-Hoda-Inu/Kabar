@@ -73,20 +73,28 @@ class _NewsCardState extends State<NewsCard> {
             ),
           ),
           const SizedBox(height: 4,),
-          ElevatedButton(
-              onPressed: (){
-                LaunchUrlMethod(widget.articles.url ?? "https://pub.dev/packages/url_launcher");
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColor.primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6)
-                )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ElevatedButton(
+                onPressed: (){
+                  LaunchUrlMethod(widget.articles.url ?? "https://pub.dev/packages/url_launcher");
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.primaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6)
+                    )
+                ),
+                child: const Text("Read", style: TextStyle(
+                  color: Colors.white,
+                ),),
               ),
-            child: const Text("Read", style: TextStyle(
-              color: Colors.white,
-          ),),
-              ),
+              IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.bookmark, color: Colors.black12,))
+            ],
+          )
         ],
       ),
     );
